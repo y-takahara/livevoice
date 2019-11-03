@@ -1,0 +1,18 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-dark.text-white
+  %i.fas.fa-bolt.m-3
+  %a.navbar-brand.text-white{:href => "#"} LiveVoice
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link.text-white{:href => "#"}
+          新規登録
+          %span.sr-only (current)
+      %li.nav-item
+        %a.nav-link.text-white{:href => "#"} ログイン
+      %li.nav-item
+        %a.nav-link.text-white{:href => "#"} レビューする
+    %form.form-inline.my-2.my-lg-0
+      %input.form-control.mr-sm-2.w-150.col-7{"aria-label" => "Search", :placeholder => "キーワードを入力してください", :type => "search",:style => "width:550px"}/
+      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} 検索する
