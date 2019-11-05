@@ -1,0 +1,22 @@
+.form-contents 
+  .form-container
+    = form_with(model: @review,url: reviews_create_path, local: true) do|f|
+      %h3
+        ライブ・セットリストの登録
+      .form-group
+        = f.label "開催日時"
+        = f.date_select(:event_date, use_month_numbers: true,start_year: 1990,end_year: (Time.now.year),default: Date.new(1990, 1, 1),date_separator: '/')
+      .form-group
+        = f.label "アーティスト名"
+        = f.text_field :artist , placeholder: "アーティスト名"
+      .form-group
+        = f.label "会場名"
+        = f.text_field :venue, placeholder: "会場名"
+      .form-group
+        = f.label "画像"
+        = f.file_field :image, placeholder: "画像"
+      .form-group
+        = f.label "本文"
+        = f.text_area :text, placeholder: "感想・セットリストを入力してください"
+      .submit
+        = f.submit " 投稿する" 
