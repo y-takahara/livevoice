@@ -1,18 +1,18 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-dark.text-white{:style => "max-width:1400px"}
   %i.fas.fa-bolt.m-3
-  %a.navbar-brand.text-white{:href => "#"} LiveVoice
+  %a.navbar-brand.text-white{:href => "/"} LiveVoice
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item.active
-        %a.nav-link.text-white{:href => "#"}
+        %a.nav-link.text-white{:href => new_user_registration_path }
           新規登録
           %span.sr-only (current)
       %li.nav-item
-        %a.nav-link.text-white{:href => "#"} ログイン
+        %a.nav-link.text-white{:href => new_user_session_path } ログイン
       %li.nav-item
-        %a.nav-link.text-white{:href => "#"} 投稿する
+        %a.nav-link.text-white{:href => reviews_new_path} 投稿する
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2.w-150.col-7{"aria-label" => "Search", :placeholder => "キーワードを入力してください", :type => "search",:style => "width:550px"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} 検索する
