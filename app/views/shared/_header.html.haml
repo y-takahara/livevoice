@@ -4,6 +4,13 @@
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
+  - if user_signed_in?
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to "ログアウト","/users/sign_out", method: :delete,class: "nav-link text-white"
+      %li.nav-item
+        %a.nav-link.text-white{:href => new_review_path} 投稿する
+  - else 
     %ul.navbar-nav.mr-auto
       %li.nav-item.active
         %a.nav-link.text-white{:href => new_user_registration_path }
@@ -11,8 +18,6 @@
           %span.sr-only (current)
       %li.nav-item
         %a.nav-link.text-white{:href => new_user_session_path } ログイン
-      %li.nav-item
-        %a.nav-link.text-white{:href => reviews_new_path} 投稿する
-    %form.form-inline.my-2.my-lg-0
-      %input.form-control.mr-sm-2.w-150.col-7{"aria-label" => "Search", :placeholder => "キーワードを入力してください", :type => "search",:style => "width:550px"}/
-      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} 検索する
+  %form.form-inline.my-2.my-lg-0
+    %input.form-control.mr-sm-2.w-150.col-7{"aria-label" => "Search", :placeholder => "キーワードを入力してください", :type => "search",:style => "width:550px"}/
+    %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} 検索する
