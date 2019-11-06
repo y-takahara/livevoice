@@ -1,0 +1,52 @@
+.card-box.show
+  .card-image{:style => "width:400px",:style => "height:300px"}
+    = image_tag @review.image.url, height: "300px" ,width: "440px", alt: 'ライブ画像', class: 'card-img-top'
+  .card-body
+    = link_to @review.user.nickname,"/users/#{@review.user_id}"
+    %span さんの投稿
+    %h3
+      開催日時
+      %br/
+    %p
+      = @review.event_date.strftime("%Y/%m/%d %H:%M")
+    %h3.card-text
+      アーティスト名
+      %br/
+    %p
+      = @review.artist
+    %h3
+      会場
+      %br/
+    %p
+      = @review.venue
+    %h3
+      レビュー
+      %br/
+    %p.card-text
+      = simple_format(@review.text) 
+    -if user_signed_in? && @review.user_id == current_user.id
+      = link_to "削除","/reviews/#{@review.id}", method: :delete
+.comments-form-box
+  = form_with url: "/reviews/#{@review.id}/comments",method: :post,local: true do|f|
+    %h3
+      コメント記入
+    = f.text_area :text,placeholder: "コメントする"
+    .submit
+      = f.submit "送信" 
+  .comments
+    %h2
+      コメント一覧
+    .comments-box
+      - if @comments 
+        - @comments.each do|comment|
+          .comment
+            %p
+              = comment.text
+            %br/
+            
+            %p
+              = link_to comment.user.nickname,"/users/#{comment.user_id}"
+            %p
+              = comment.created_at.strftime("%Y/%m/%d %H:%M")
+            %p
+              = link_to "削除する",[@review,comment], method: :delete
