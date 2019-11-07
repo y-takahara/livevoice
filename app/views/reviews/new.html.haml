@@ -1,6 +1,6 @@
 .form-contents 
   .form-container
-    = form_with(model: @review,url: reviews_create_path, local: true) do|f|
+    = form_with(model: @review,url: "/reviews",method: :post, local: true) do|f|
       %h3
         ライブレビューの登録
       .form-group
