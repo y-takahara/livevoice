@@ -25,9 +25,11 @@
           %br/
         %p.card-text
           = simple_format(review.text)
-        = link_to "詳細","/reviews/#{review.id}", method: :get
-        -if user_signed_in? && review.user_id == current_user.id
-          = link_to "削除","/reviews/#{review.id}", method: :delete
+        .menu
+          = render partial: "likes/like",locals: { review: review}
+          = link_to "詳細","/reviews/#{review.id}", method: :get
+          -if user_signed_in? && review.user_id == current_user.id
+            = link_to "削除","/reviews/#{review.id}", method: :delete
   - else
     .card{:style => "width:300px"}
       .card-body
@@ -51,7 +53,10 @@
           %br/
         %p.card-text
           = simple_format(review.text) 
-        = link_to "詳細","/reviews/#{review.id}", method: :get
-        -if user_signed_in? && review.user_id == current_user.id
-          = link_to "削除","/reviews/#{review.id}", method: :delete
+        .menu
+          = render partial: "likes/like",locals: { review: review}
+          = link_to "詳細","/reviews/#{review.id}", method: :get
+          -if user_signed_in? && review.user_id == current_user.id
+            = link_to "削除","/reviews/#{review.id}", method: :delete
+          
 
