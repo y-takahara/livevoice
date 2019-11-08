@@ -1,7 +1,19 @@
 .mypage-name
-  %h2
-    = @nickname
-    %span さんのページ
-.card-box
-  = render partial: 'shared/review_content', local: @reviews
-= paginate(@reviews)
+- if @avatar.present?
+  .user-image 
+    = image_tag @avatar
+  .mypage-name
+    %h2
+      = @nickname
+      %span さんのページ
+  .card-box
+    = render partial: 'shared/review_content', local: @reviews
+  = paginate(@reviews)
+- else
+  .mypage-name
+    %h2
+      = @nickname
+      %span さんのページ
+  .card-box
+    = render partial: 'shared/review_content', local: @reviews
+  = paginate(@reviews)

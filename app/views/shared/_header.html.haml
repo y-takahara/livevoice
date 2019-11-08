@@ -1,4 +1,4 @@
-%nav.navbar.navbar-expand-lg.navbar-light.bg-dark.text-white{:style => "max-width:1400px"}
+%nav.navbar.navbar-expand-lg.navbar-light.bg-dark.text-white{:style => "max-width:1440px"}
   %i.fas.fa-bolt.m-3
   %a.navbar-brand.text-white{:href => "/"} LiveVoice
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
@@ -18,6 +18,8 @@
           %span.sr-only (current)
       %li.nav-item
         %a.nav-link.text-white{:href => new_user_session_path } ログイン
-  %form.form-inline.my-2.my-lg-0
-    %input.form-control.mr-sm-2.w-150.col-7{"aria-label" => "Search", :placeholder => "キーワードを入力してください", :type => "search",:style => "width:550px"}/
-    %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} 検索する
+  .search_form
+    = search_form_for @search, url: reviews_search_path,method: :get do|f|
+      = f.text_field :artist_or_text_or_venue_cont ,placeholder: "検索するテキストを入力...",class:"form-control mr-sm-2 w-150 col-7",style: "width:550px"
+      = f.submit "検索する",class:" btn btn-outline-success my-2 my-sm-0"
+      

@@ -1,0 +1,75 @@
+- if @results.present?
+  .search-box
+    %p 
+      %span
+        = "'#{@search.base.values[0].value}'"
+      = "の検索結果:#{@results.length}件"
+  .card-box
+    - @results.each do |result| 
+      - if result.image.url
+        .card{:style => "width:300px"}
+          = image_tag result.image.url, height: "200px" ,width: "350px", alt: 'ライブ画像', class: 'card-img-top'
+          .card-body
+            = link_to result.user.nickname,"/users/#{result.user_id}"
+            %span さんの投稿
+            %h3
+              開催日時
+              %br/
+            %p
+              = result.event_date.strftime("%Y/%m/%d %H:%M")
+            %h3.card-text
+              アーティスト名
+              %br/
+            %p
+              = result.artist
+            %h3
+              会場
+              %br/
+            %p
+              = result.venue
+            %h3
+              レビュー
+              %br/
+            %p.card-text
+              = simple_format(result.text)
+            .menu
+              = link_to "詳細","/reviews/#{result.id}", method: :get
+              -if user_signed_in? && result.user_id == current_user.id
+                = link_to "削除","/reviews/#{result.id}", method: :delete
+      - else
+        .card{:style => "width:300px"}
+          .card-body
+            %h3
+              開催日時
+              %br/
+            %p
+              = result.event_date.strftime("%Y-%m-%d %H:%M")
+            %h3.card-text
+              アーティスト名
+              %br/
+            %p
+              = result.artist
+            %h3
+              会場
+              %br/
+            %p
+              = result.venue
+            %h3
+              レビュー
+              %br/
+            %p.card-text
+              = simple_format(result.text) 
+            .menu
+              = link_to "詳細","/reviews/#{result.id}", method: :get
+              -if user_signed_in? && result.user_id == current_user.id
+                = link_to "削除","/reviews/#{result.id}", method: :delete
+- else 
+  .search-box
+    %p 
+      %span
+        = "'#{@search.base.values[0].value}'"
+      = "の検索結果:#{@results.length}件"
+    %p
+      条件に一致するアーティスト/公演が見つかりませんでした。
+
+    

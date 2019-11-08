@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   
   devise_for :users
   root "reviews#home"
+  get "reviews/home" => "reviews#home"
+  get "reviews/search" => "reviews#search"
   resources :reviews do
-    resources :comments, omly:[:create]
+    resources :likes, only: [:create, :destroy]
+    resources :comments, only:[:create]
   end
   resources :users, only:[:show]
-  get "reviews/home" => "reviews#home"
   
  end
