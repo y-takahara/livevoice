@@ -1,9 +1,9 @@
 html {
-  max-width:1400px;
+  max-width:1440px;
 }
 
 body {
-  max-width:1400px;}
+  max-width:1440px;}
 
 .fas.fa-bolt {
   font-size: 30px;
@@ -56,21 +56,47 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-
+  padding-bottom: 54px;
 }
 .card-box.show {
   margin-top: 20px;
 }
 
 .card-body {
-  letter-spacing: 4px;
+  letter-spacing: 2px;
+  position: relative;
   & h3{
     font-weight: bold;
     border-bottom: black solid 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+& p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+& .menu {
+  position: absolute;
+  bottom: 3px;
+}
+}
+.search-box {
+  height: 20px;
+  
+  & p {
+    font-size: 20px;
+    margin-left: 250px;
+    margin-top: 20px;
+  }
+  & span {
+    font-weight: bold;
+    color: coral;
   }
 }
+
 
 .main-menu {
   height:300px;
@@ -179,8 +205,7 @@ font-size: 18px;
   
   & h2 {
     border-bottom: black solid 3px;
-    margin-top: 20px;
-    
+    margin-top: 10px;
     font-size: 30px;
     padding-left: 250px;
   }
@@ -223,4 +248,44 @@ font-size: 18px;
   padding:10px;
   border: black solid 1px;
   border-radius: 10px;
+}
+.review_search{
+  display: inline-flex;
+  margin-left: 350px;
+}
+
+.active {
+  color:#d1274b;
+}
+
+.negative {
+  color: #343a40;
+}
+.menu {
+  width: 280px;
+  position: relative;
+  & p {
+    display: inline-block;
+    margin:0;
+    position: absolute;
+    bottom: 0;
+    right: 19px;
+  }
+  & i {
+    font-size: 20px;
+    display: inline-block;
+    position: absolute;
+    bottom: 4px;
+    right: 30px;
+  }
+ 
+}
+.user-image  {
+  & img {
+    height: 70px;
+    width:70px;
+    border-radius: 35px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
 }

@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all.page(params[:page]).per(6)
+    @reviews = Review.all.order("id DESC").page(params[:page]).per(6)
   end
 
   def new
@@ -28,6 +28,11 @@ class ReviewsController < ApplicationController
     if review.user_id == current_user.id
       review.destroy
     end
+  end
+
+  def search
+    @search = Review.ransack(params[:q])
+    @results = @search.result
   end
 
 

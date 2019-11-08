@@ -1,29 +1,56 @@
 .card-box.show
-  .card-image{:style => "width:400px",:style => "height:300px"}
-    = image_tag @review.image.url, height: "300px" ,width: "440px", alt: 'ライブ画像', class: 'card-img-top'
-  .card-body
-    = link_to @review.user.nickname,"/users/#{@review.user_id}"
-    %span さんの投稿
-    %h3
-      開催日時
-      %br/
-    %p
-      = @review.event_date.strftime("%Y/%m/%d %H:%M")
-    %h3.card-text
-      アーティスト名
-      %br/
-    %p
-      = @review.artist
-    %h3
-      会場
-      %br/
-    %p
-      = @review.venue
-    %h3
-      レビュー
-      %br/
-    %p.card-text
-      = simple_format(@review.text) 
+  - if @review.image.url
+    .card-image{:style => "width:400px",:style => "height:300px"}
+      = image_tag @review.image.url, height: "300px" ,width: "440px", alt: 'ライブ画像', class: 'card-img-top'
+    .card-body
+      = link_to @review.user.nickname,"/users/#{@review.user_id}"
+      %span さんの投稿
+      %h3
+        開催日時
+        %br/
+      %p
+        = @review.event_date.strftime("%Y/%m/%d %H:%M")
+      %h3.card-text
+        アーティスト名
+        %br/
+      %p
+        = @review.artist
+      %h3
+        会場
+        %br/
+      %p
+        = @review.venue
+      %h3
+        レビュー
+        %br/
+      %p.card-text
+        = simple_format(@review.text) 
+      -if user_signed_in? && @review.user_id == current_user.id
+        = link_to "削除","/reviews/#{@review.id}", method: :delete
+  - else
+    .card-body
+      = link_to @review.user.nickname,"/users/#{@review.user_id}"
+      %span さんの投稿
+      %h3
+        開催日時
+        %br/
+      %p
+        = @review.event_date.strftime("%Y/%m/%d %H:%M")
+      %h3.card-text
+        アーティスト名
+        %br/
+      %p
+        = @review.artist
+      %h3
+        会場
+        %br/
+      %p
+        = @review.venue
+      %h3
+        レビュー
+        %br/
+      %p.card-text
+        = simple_format(@review.text) 
     -if user_signed_in? && @review.user_id == current_user.id
       = link_to "削除","/reviews/#{@review.id}", method: :delete
 .comments-form-box
