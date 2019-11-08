@@ -30,7 +30,7 @@
             %h3
               レビュー
               %br/
-            %p.card-text
+            .card-text
               = simple_format(result.text)
             .menu
               = link_to "詳細","/reviews/#{result.id}", method: :get
@@ -57,7 +57,7 @@
             %h3
               レビュー
               %br/
-            %p.card-text
+            .card-text
               = simple_format(result.text) 
             .menu
               = link_to "詳細","/reviews/#{result.id}", method: :get

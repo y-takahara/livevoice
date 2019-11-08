@@ -24,7 +24,7 @@
         %h3
           レビュー
           %br/
-        %p.card-text
+        .card-text
           = simple_format(review.text)
         .menu
           = render partial: "likes/like",locals: { review: review}
@@ -52,7 +52,7 @@
         %h3
           レビュー
           %br/
-        %p.card-text
+        .card-text
           = simple_format(review.text) 
         .menu
           = render partial: "likes/like",locals: { review: review}
