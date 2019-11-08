@@ -71,18 +71,32 @@ body {
     margin-top: 8px;
     margin-bottom: 8px;
   }
-& p {
+
+& .menu {
+  position: absolute;
+  bottom: 3px;
+}
+& h2 {
+  letter-spacing: 2px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
   margin-bottom: 8px;
 }
-& .menu {
-  position: absolute;
-  bottom: 3px;
 }
+
+.card-text {
+  & p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
 }
+
+
 .search-box {
   height: 20px;
   
