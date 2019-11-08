@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
-  root "reviews#index"
-  get "reviews/index" => "reviews#index"
-end
+  devise_for :users
+  root "reviews#home"
+  get "reviews/home" => "reviews#home"
+  get "reviews/search" => "reviews#search"
+  resources :reviews do
+    resources :likes, only: [:create, :destroy]
+    resources :comments, only:[:create]
+  end
+  resources :users, only:[:show]
+  
+ end

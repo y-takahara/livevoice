@@ -20,9 +20,9 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # username: yuuki # 設定したPostgreSQL Accountと同一のもの
-  # password: 04290429 # 設定したPostgreSQL Accountと同一のもの
-  # host: localhost
+  username: yuuki # 設定したPostgreSQL Accountと同一のもの
+  password: 04290098 # 設定したPostgreSQL Accountと同一のもの
+  host: localhost
 
 development:
   <<: *default
@@ -83,6 +83,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: livevoice_production
   username: livevoice
   password: <%= ENV['LIVEVOICE_DATABASE_PASSWORD'] %>
