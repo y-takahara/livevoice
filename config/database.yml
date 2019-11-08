@@ -83,6 +83,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: livevoice_production
   username: livevoice
   password: <%= ENV['LIVEVOICE_DATABASE_PASSWORD'] %>
