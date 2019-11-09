@@ -23,7 +23,7 @@
       %h3
         レビュー
         %br/
-      %p.card-text
+      %h2.card-text
         = simple_format(@review.text) 
       -if user_signed_in? && @review.user_id == current_user.id
         = link_to "削除","/reviews/#{@review.id}", method: :delete
@@ -49,7 +49,7 @@
       %h3
         レビュー
         %br/
-      %p.card-text
+      %h2.card-text
         = simple_format(@review.text) 
     -if user_signed_in? && @review.user_id == current_user.id
       = link_to "削除","/reviews/#{@review.id}", method: :delete
