@@ -4,6 +4,9 @@ class Review < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :likes, dependent: :destroy
 
+  validates :artist,presence: true,length: { maximum: 120 }
+  validates :text, presence: true
+
   def iine(user)
     likes.create(user_id: user.id)
   end

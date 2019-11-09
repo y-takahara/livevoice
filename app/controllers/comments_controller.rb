@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
   def create 
     comment = Comment.create(text: comment_params[:text],review_id: comment_params[:review_id],user_id: current_user.id)
+    comment.valid?
     redirect_to "/reviews/#{comment.review.id}"
   end
 
