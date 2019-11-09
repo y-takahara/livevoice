@@ -1,0 +1,7 @@
+= form_for(User.new, url: user_session_path) do |f|
+  .field
+    =f.hidden_field :email ,value: "test@example.com"
+  .field
+    =f.hidden_field :password ,value: "testtest"
+  .actions1
+    = f.submit "かんたんログイン"
