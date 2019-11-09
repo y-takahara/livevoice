@@ -18,6 +18,7 @@
           %span.sr-only (current)
       %li.nav-item
         %a.nav-link.text-white{:href => new_user_session_path } ログイン
+    = render 'devise/sessions/testuser'
   .search_form
     = search_form_for @search, url: reviews_search_path,method: :get do|f|
       = f.text_field :artist_or_text_or_venue_cont ,placeholder: "検索するテキストを入力...",class:"form-control mr-sm-2 w-150 col-7",style: "width:550px"
