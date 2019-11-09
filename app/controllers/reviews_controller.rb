@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all.order("id DESC").page(params[:page]).per(6)
+    @reviews = Review.all.order("created_at DESC").page(params[:page]).per(6)
   end
 
   def new
