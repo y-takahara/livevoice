@@ -2,12 +2,13 @@
   .side-bar
     %nav.nav.flex-column
     %a.nav-link.active.bg-light{:href => "/"} TOP
+    %a.nav-link.bg-light{:href =>new_review_path} 投稿する
     %a.nav-link.bg-light{:href =>reviews_path} 投稿一覧
     %a.nav-link.bg-light{:href =>"/users/#{current_user.id}"} マイページ
+    = link_to "ログアウト","/users/sign_out", method: :delete,class: "nav-link bg-light"
 - else 
   .side-bar
     %nav.nav.flex-column
-    %a.nav-link.active.bg-light{:href => "/"} TOP
-    %a.nav-link.bg-light{:href =>reviews_path} 投稿一覧
+    
     
   
