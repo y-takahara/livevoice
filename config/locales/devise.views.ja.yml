@@ -17,6 +17,19 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
+            nickname:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+        review:
+          attributes:
+            artist:
+              blank: "を入力してください。"
+            text:
+              blank: "を入力してください。"
+
     attributes:
       user:
         current_password: "現在のパスワード"
@@ -25,6 +38,11 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+        nickname: ニックネーム
+    attributes:
+      review:
+        artist: アーティスト
+        text: 本文
     models:
       user: "ユーザ"
   devise:
