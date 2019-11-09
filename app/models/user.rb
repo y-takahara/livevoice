@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
   
-  validates :nickname, presence: true, length: {  minimum: 4,maximum: 20 }, uniqueness: true
+  validates :nickname, presence: true, length: { maximum: 10 }, uniqueness: true
   validates :email, presence: true,format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },uniqueness: true
   validates :password,length: { minimum: 6 }, presence: true
 end
