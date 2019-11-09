@@ -143,10 +143,11 @@ body {
 
 
 .form-contents  {
-  height:700px;
+  min-height:700px;
   width: 800px;
   padding-left: 300px;
   padding-top: 30px;
+  padding-bottom: 60px;
   margin-bottom: 20px;
 }
 
@@ -179,11 +180,12 @@ font-size: 18px;
 }
 
 .devise-container {
-  height: 550px;
+  min-height: 550px;
   width: 800px;
   font-size: 18px;
   padding-left: 300px;
   padding-top: 30px;
+  padding-bottom: 60px;
   margin-bottom: 20px;
   & h3 {
     font-weight: bold;
@@ -314,4 +316,42 @@ font-size: 18px;
   background-color: #343a40;
   color:white;
   margin-left: 5px;
+}
+
+.login-box {
+  & input {
+    height:60px;
+    width:400px;
+    border-radius: 10px;
+    margin-top: 50px;
+ 
+    background-color: #38AEF0;
+    color: white;
+    font-size: 20px;
+  }
+  & a {
+    display: block;
+    height:60px;
+    width:400px;
+    border-radius: 10px;
+    background-color: #38AEF0;
+    color: white;
+    font-size: 20px;
+    margin: 40px auto;
+    line-height: 60px;
+  }
+}
+
+.notification {
+  .notice {
+    background-color: #38AEF0;
+    color: white;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: #F35500;
+    color: white;
+    text-align: center;
+  }
 }

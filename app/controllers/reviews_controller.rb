@@ -20,7 +20,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create(review_params)
+    if @review.valid?
       render :home
+    else
+      render :new
+    end
   end
 
   def destroy

@@ -1,5 +1,31 @@
 .form-contents 
   .form-container
+  - if @review.errors.any?
+    #error_explanation.alert.alert-danger
+      %ul
+        - @review.errors.full_messages.each do |message|
+          %li= message
+    = form_with(model: @review,url: "/reviews",method: :post, local: true) do|f|
+      %h3
+        ライブレビューの登録
+      .form-group
+        = f.label "開催日時"
+        = f.datetime_select(:event_date, use_month_numbers: true,start_year: 2010,end_year: 2025,default: Date.new(2000, 1, 1),:minute_step => 10,date_separator: '/')
+      .form-group
+        = f.label "アーティスト名"
+        = f.text_field :artist 
+      .form-group
+        = f.label "会場名"
+        = f.text_field :venue
+      .form-group
+        = f.label "画像" 
+        = f.file_field :image
+      .form-group
+        = f.label "本文"
+        = f.text_area :text
+      .submit
+        = f.submit " 投稿する" 
+  - else
     = form_with(model: @review,url: "/reviews",method: :post, local: true) do|f|
       %h3
         ライブレビューの登録
