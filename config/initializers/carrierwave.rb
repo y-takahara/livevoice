@@ -11,6 +11,8 @@ if Rails.env.production?
       aws_secret_access_key: "d3A2lHYFKEmiBrUe2T0pcWN4D2FiSx+mn8h/C4Xy",
       region: 'ap-northeast-1'  # S3バケット作成時に指定したリージョン。左記は東京を指す
     }
+    config.fog_public = false
+    config.asset_host = 'https://s3.amazonaws.com/livevoice'
     config.fog_directory  = 'livevoice' # 作成したS3バケット名
   end
   # 日本語ファイル名の設定
