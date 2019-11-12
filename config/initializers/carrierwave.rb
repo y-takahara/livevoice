@@ -7,8 +7,8 @@ if Rails.env.production?
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: "AKIAXS7Q3Y3FN6EH4OGV",
-      aws_secret_access_key: "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",
+      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
       region: 'ap-northeast-1'  # S3バケット作成時に指定したリージョン。左記は東京を指す
     }
     config.fog_public = false
