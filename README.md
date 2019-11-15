@@ -6,7 +6,7 @@
 ## 本番環境
 ログイン画面からテストユーザーでログインが可能です。
 
-https://livevoice000.herokuapp.com/reviews/9
+https://livevoice000.herokuapp.com/
 
 ## 機能一覧、使用gemなど
 + ユーザー登録,ログイン機能（device）
