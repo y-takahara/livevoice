@@ -163,11 +163,14 @@ font-size: 18px;
 
 .form-group {
   
-  & input {
+  & input  {
     height:40px;
     width:500px;
     border-radius: 10px;
   }
+
+
+
   & textarea {
     height:200px;
     width:500px;
