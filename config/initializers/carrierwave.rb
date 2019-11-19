@@ -12,7 +12,7 @@ if Rails.env.production?
       region: 'ap-northeast-1'  # S3バケット作成時に指定したリージョン。左記は東京を指す
     }
     config.fog_public = false
-    config.asset_host = 'https://s3.amazonaws.com/livevoice'
+    config.asset_host = 'https://s3.amazonaws.com/livevoice00'
     config.fog_directory  = 'livevoice00' # 作成したS3バケット名
   end
   # 日本語ファイル名の設定
