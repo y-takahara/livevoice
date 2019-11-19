@@ -13,7 +13,7 @@ if Rails.env.production?
     }
     config.fog_public = false
     config.asset_host = 'https://s3.amazonaws.com/livevoice'
-    config.fog_directory  = 'livevoice' # 作成したS3バケット名
+    config.fog_directory  = 'livevoice00' # 作成したS3バケット名
   end
   # 日本語ファイル名の設定
   CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/ 
