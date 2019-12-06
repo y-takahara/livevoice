@@ -22,7 +22,7 @@
     .login-box
       = form_for(User.new, url: user_session_path) do |f|
         .login-field
-          =f.hidden_field :email ,value: "test@example.com"
+          =f.hidden_field :email ,value: "test1@example.com"
         .login-field
           =f.hidden_field :password ,value: "testtest"
         .login-actions
