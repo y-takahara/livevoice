@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :move_to_index, except: [:home,:index,:show]
+  before_action :move_to_home ,except: [:home]
 
   def home
   end
@@ -16,6 +16,18 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @comments = @review.comments.includes(:user)
+  end
+
+  def edit
+    @review = Review.find_by(id: params[:id])
+  end
+
+  def update
+    @review = Review.find_by(id: params[:id])
+    if @review.user_id == current_user.id
+    @review.update(review_params)
+    end
+    render :show
   end
 
   def create
@@ -47,7 +59,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:event_date,:artist,:venue,:image,:text).merge(user_id: current_user.id)
   end
 
-  def move_to_index 
+  def move_to_home
     redirect_to action: :home unless user_signed_in?
   end
 

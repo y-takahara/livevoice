@@ -3,7 +3,6 @@
     .card{:style => "width:300px"}
       = image_tag review.image.url, height: "200px" ,width: "350px", alt: 'ライブ画像', class: 'card-img-top'
       .card-body
-        -# = image_tag @avatar,  height: "200px" ,width: "350px"
         = link_to review.user.nickname,"/users/#{review.user_id}"
         %span さんの投稿
         %h3
@@ -31,6 +30,7 @@
           = link_to "詳細","/reviews/#{review.id}", method: :get
           -if user_signed_in? && review.user_id == current_user.id
             = link_to "削除","/reviews/#{review.id}", method: :delete
+            = link_to "編集", edit_review_path(review), method: :get
   - else
     .card{:style => "width:300px"}
       .card-body

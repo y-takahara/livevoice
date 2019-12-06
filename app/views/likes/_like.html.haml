@@ -2,23 +2,12 @@
   - if current_user.likes.find_by(review_id: review.id)
     = link_to review_like_path(review,review.id), method: :delete do
       %i.fas.fa-heart.active
-    - if  review.likes_count
+    - if  review.likes.count
       %p
-        = review.likes_count
+        = review.likes.count
   - else
     = link_to review_likes_path(review,review.id),method: :post do
       %i.fas.fa-heart.negative
-    - if review.likes_count
+    - if review.likes.count
       %p
-        = review.likes_count
-- else
-  -# = link_to review_like_path(review,review.id), method: :delete do
-  -#   %i.fas.fa-heart.active
-  -#   - if  review.likes_count
-  -#     %p
-  -#       = review.likes_count
-  -#   = link_to review_likes_path(review,review.id),method: :post do
-  -#     %i.fas.fa-heart.negative
-  -#   - if review.likes_count
-  -#     %p
-  -#       = review.likes_count
+        = review.likes.count
